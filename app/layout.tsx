@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Instrument_Serif, DM_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -38,7 +39,10 @@ export default function RootLayout({
       lang="en"
       className={`${display.variable} ${sans.variable} ${mono.variable}`}
     >
-      <body className="min-h-screen bg-ink tabular">{children}</body>
+      <body className="min-h-screen bg-ink tabular">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
